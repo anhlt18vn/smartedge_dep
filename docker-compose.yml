@@ -1,0 +1,25 @@
+services:
+
+  smartedge-on-network:
+    image: anhlt18vn/smartedge-on-network:latest
+    command: ["/src/smartedge_on_network.sh"]
+    network_mode: "host"
+    environment:
+      - NODE_ID=${NODE_ID}
+      - TDD_ENDPOINT=${TDD_ENDPOINT}
+      - COORDINATOR=${COORDINATOR}
+      - ORCHESTRATOR=${ORCHESTRATOR}
+    
+  smartedge-on-device:
+    image: anhlt18vn/smartedge-on-device:latest
+    command: ["/src/smartedge_on_device.sh"]
+    network_mode: "bridge"
+    environment:
+      - NODE_ID=${NODE_ID}
+      - COORDINATOR=${COORDINATOR}
+      - ORCHESTRATOR=${ORCHESTRATOR}
+      - TDD_ENDPOINT=${TDD_ENDPOINT}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
