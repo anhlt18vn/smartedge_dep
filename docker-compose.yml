@@ -2,7 +2,7 @@ services:
 
   smartedge-on-network:
     image: anhlt18vn/smartedge-runtime-network:latest
-    command: ["/src/smartedge_on_network.sh"]
+    command: ["/root/smartedge_on_network.sh"]
     network_mode: "host"
     environment:
       - NODE_ID=${NODE_ID}
@@ -12,7 +12,7 @@ services:
     
   smartedge-on-device:
     image: anhlt18vn/smartedge-runtime-device:latest
-    command: ["/src/smartedge_on_device.sh"]
+    command: ["/root/smartedge_on_device.sh"]
     network_mode: "bridge"
     environment:
       - NODE_ID=${NODE_ID}
