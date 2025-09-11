@@ -1,7 +1,7 @@
 services:
 
   smartedge-on-network:
-    image: anhlt18vn/smartedge-on-network:latest
+    image: anhlt18vn/smartedge-runtime-network:latest
     command: ["/src/smartedge_on_network.sh"]
     network_mode: "host"
     environment:
@@ -11,7 +11,7 @@ services:
       - ORCHESTRATOR=${ORCHESTRATOR}
     
   smartedge-on-device:
-    image: anhlt18vn/smartedge-on-device:latest
+    image: anhlt18vn/smartedge-runtime-device:latest
     command: ["/src/smartedge_on_device.sh"]
     network_mode: "bridge"
     environment:
