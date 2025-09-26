@@ -10,8 +10,8 @@ NODE_ID=$1
 
 cat > .env <<EOF
 NODE_ID=${NODE_ID}
-COORDINATOR=false
-ORCHESTRATOR=false
+COORDINATOR=true
+ORCHESTRATOR=true
 TDD_ENDPOINT=http://192.168.1.175:8080/rdf4j-workbench/repositories/1
 EOF
 
