@@ -1,0 +1,17 @@
+services:
+  ros-humble-jupyter:
+    build: .
+    container_name: ros_humble_jupyter
+    network_mode: "bridge"
+    ports:
+      - "18585:18585"
+    volumes:
+      - ./notebooks:/root/notebooks
+    command: >
+      jupyter notebook
+      --ip=0.0.0.0
+      --port=18585
+      --allow-root
+      --no-browser
+      --NotebookApp.token=''
+      --NotebookApp.password=''
