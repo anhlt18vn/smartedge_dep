@@ -13,6 +13,7 @@ NODE_ID=${NODE_ID}
 COORDINATOR=false
 ORCHESTRATOR=false
 TDD_ENDPOINT=http://192.168.1.175:8080/rdf4j-workbench/repositories/1
+TD_FILE_PATH="<path-to-td.json>"
 EOF
 
 docker compose up 

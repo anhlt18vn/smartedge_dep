@@ -1,24 +1,25 @@
 services:
 
-  smartedge-on-network:
-    image: anhlt18vn/smartedge-runtime-network:latest
-    command: ["/root/smartedge_on_network_launch.sh"]
+  #smartedge-on-network:
+  #  image: anhlt18vn/smartedge-runtime-network:latest
+  #  command: ["/root/smartedge_on_network_launch.sh"]
+  #  network_mode: "host"
+  #  environment:
+  #    - NODE_ID=${NODE_ID}
+  #    - TDD_ENDPOINT=${TDD_ENDPOINT}
+  #    - COORDINATOR=${COORDINATOR}
+  #    - ORCHESTRATOR=${ORCHESTRATOR}
+    
+  smartedge-runtime:
+    image: anhlt18vn/smartedge-runtime-device:latest
+    command: ["/root/smartedge_on_device_launch.sh"]
     network_mode: "host"
     environment:
       - NODE_ID=${NODE_ID}
-      - TDD_ENDPOINT=${TDD_ENDPOINT}
-      - COORDINATOR=${COORDINATOR}
-      - ORCHESTRATOR=${ORCHESTRATOR}
-    
-  smartedge-on-device:
-    image: anhlt18vn/smartedge-runtime-device:latest
-    command: ["/root/smartedge_on_device_launch.sh"]
-    network_mode: "bridge"
-    environment:
-      - NODE_ID=${NODE_ID}
       - COORDINATOR=${COORDINATOR}
       - ORCHESTRATOR=${ORCHESTRATOR}
       - TDD_ENDPOINT=${TDD_ENDPOINT}
+      - TD_FILE_PATH=${TD_FILE_PATH}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     extra_hosts:
